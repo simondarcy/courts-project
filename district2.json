@@ -1,0 +1,142 @@
+{
+  "Community Service Order": {
+    "Assault": 3,
+    "Dangerous Driving": null,
+    "Drink Driving": null,
+    "Drugs": 1,
+    "OTHER": 11,
+    "Penalty Points": 3,
+    "Public Order": 1,
+    "Road Traffic Other": 1,
+    "Theft": {
+      "Burglary": 14
+    },
+    "Total": "34"
+  },
+  "Dismiss": {
+    "Assault": 4,
+    "Dangerous Driving": 4,
+    "Drink Driving": 9,
+    "Drugs": null,
+    "OTHER": 22,
+    "Penalty Points": 14,
+    "Public Order": 6,
+    "Road Traffic Other": 7,
+    "Theft": {
+      "Burglary": 4
+    },
+    "Total": "70"
+  },
+  "Disqualification": {
+    "Assault": 1,
+    "Dangerous Driving": 14,
+    "Drink Driving": 72,
+    "Drugs": null,
+    "OTHER": 1,
+    "Penalty Points": 123,
+    "Public Order": null,
+    "Road Traffic Other": 25,
+    "Theft": {
+      "Burglary": 5
+    },
+    "Total": "241"
+  },
+  "Fine": {
+    "Assault": 14,
+    "Dangerous Driving": 10,
+    "Drink Driving": 68,
+    "Drugs": 35,
+    "OTHER": 194,
+    "Penalty Points": 384,
+    "Public Order": 104,
+    "Road Traffic Other": 142,
+    "Theft": {
+      "Burglary": 43
+    },
+    "Total": "994"
+  },
+  "Impr/Det Suspended": {
+    "Assault": 7,
+    "Dangerous Driving": 5,
+    "Drink Driving": 3,
+    "Drugs": 3,
+    "OTHER": 17,
+    "Penalty Points": 30,
+    "Public Order": 13,
+    "Road Traffic Other": 13,
+    "Theft": {
+      "Burglary": 43
+    },
+    "Total": "134"
+  },
+  "Imprisonment/Detention": {
+    "Assault": 11,
+    "Dangerous Driving": 1,
+    "Drink Driving": 1,
+    "Drugs": 1,
+    "OTHER": 16,
+    "Penalty Points": 4,
+    "Public Order": 26,
+    "Road Traffic Other": 1,
+    "Theft": {
+      "Burglary": 46
+    },
+    "Total": "107"
+  },
+  "Other": {
+    "Assault": 5,
+    "Dangerous Driving": 18,
+    "Drink Driving": 8,
+    "Drugs": 5,
+    "OTHER": 23,
+    "Penalty Points": 12,
+    "Public Order": 25,
+    "Road Traffic Other": 11,
+    "Theft": {
+      "Burglary": 5
+    },
+    "Total": "112"
+  },
+  "Probation": {
+    "Assault": 14,
+    "Dangerous Driving": null,
+    "Drink Driving": 1,
+    "Drugs": 75,
+    "OTHER": 53,
+    "Penalty Points": 8,
+    "Public Order": 121,
+    "Road Traffic Other": 56,
+    "Theft": {
+      "Burglary": 59
+    },
+    "Total": "387"
+  },
+  "Strike Out": {
+    "Assault": 66,
+    "Dangerous Driving": 47,
+    "Drink Driving": 32,
+    "Drugs": 45,
+    "OTHER": 511,
+    "Penalty Points": 650,
+    "Public Order": 227,
+    "Road Traffic Other": 885,
+    "Theft": {
+      "Burglary": 47
+    },
+    "Total": "2,510"
+  },
+  "Taken Into Consideration": {
+    "Assault": 1,
+    "Dangerous Driving": null,
+    "Drink Driving": 1,
+    "Drugs": 7,
+    "OTHER": 60,
+    "Penalty Points": 19,
+    "Public Order": 96,
+    "Road Traffic Other": 134,
+    "Theft": {
+      "Burglary": 89
+    },
+    "Total": "407"
+  }
+}

@@ -1,0 +1,66 @@
+#DonutChart {
+  float: left; }
+
+svg {
+  margin: 1rem auto; }
+  svg path {
+    background: #F1F3F5; }
+
+#districts g {
+  fill: #F1F3F5;
+  cursor: pointer;
+  stroke: #A3B0C6; }
+  #districts g:hover {
+    fill: #1176DD !important; }
+  #districts g.selected {
+    fill: #1176DD; }
+
+.list-title {
+  display: none;
+  width: 100%;
+  border: 1px solid #677890;
+  padding: 20px 11px;
+  font-size: 1.3rem;
+  cursor: pointer; }
+
+.right {
+  position: relative; }
+
+#title {
+  margin-bottom: 0; }
+
+p.excerpt {
+  color: #516480; }
+
+.listholder {
+  position: absolute;
+  z-index: 99999;
+  background: #FFF;
+  padding-right: 1.6rem;
+  display: none;
+  top: 198px;
+  width: 100%; }
+  .listholder ul {
+    height: 324px;
+    overflow-y: scroll;
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    .listholder ul li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer; }
+      .listholder ul li a {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        color: #000;
+        border-bottom: 1px solid #eee;
+        transition: all .2s;
+        padding-left: 1rem; }
+        .listholder ul li a:hover {
+          background: #fafafa;
+          padding-left: 1rem; }
+
+/*# sourceMappingURL=distrix.css.map */
