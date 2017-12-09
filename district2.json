@@ -1,142 +1,144 @@
-{
-  "Community Service Order": {
-    "Assault": 3,
-    "Dangerous Driving": null,
-    "Drink Driving": null,
-    "Drugs": 1,
-    "OTHER": 11,
-    "Penalty Points": 3,
-    "Public Order": 1,
-    "Road Traffic Other": 1,
-    "Theft": {
-      "Burglary": 14
-    },
-    "Total": "34"
-  },
-  "Dismiss": {
-    "Assault": 4,
-    "Dangerous Driving": 4,
-    "Drink Driving": 9,
-    "Drugs": null,
-    "OTHER": 22,
-    "Penalty Points": 14,
-    "Public Order": 6,
-    "Road Traffic Other": 7,
-    "Theft": {
-      "Burglary": 4
-    },
-    "Total": "70"
-  },
-  "Disqualification": {
-    "Assault": 1,
-    "Dangerous Driving": 14,
-    "Drink Driving": 72,
-    "Drugs": null,
-    "OTHER": 1,
-    "Penalty Points": 123,
-    "Public Order": null,
-    "Road Traffic Other": 25,
-    "Theft": {
-      "Burglary": 5
-    },
-    "Total": "241"
-  },
-  "Fine": {
-    "Assault": 14,
-    "Dangerous Driving": 10,
-    "Drink Driving": 68,
-    "Drugs": 35,
-    "OTHER": 194,
-    "Penalty Points": 384,
-    "Public Order": 104,
-    "Road Traffic Other": 142,
-    "Theft": {
-      "Burglary": 43
-    },
-    "Total": "994"
-  },
-  "Impr/Det Suspended": {
-    "Assault": 7,
-    "Dangerous Driving": 5,
-    "Drink Driving": 3,
-    "Drugs": 3,
-    "OTHER": 17,
-    "Penalty Points": 30,
-    "Public Order": 13,
-    "Road Traffic Other": 13,
-    "Theft": {
-      "Burglary": 43
-    },
-    "Total": "134"
-  },
-  "Imprisonment/Detention": {
-    "Assault": 11,
-    "Dangerous Driving": 1,
-    "Drink Driving": 1,
-    "Drugs": 1,
-    "OTHER": 16,
-    "Penalty Points": 4,
-    "Public Order": 26,
-    "Road Traffic Other": 1,
-    "Theft": {
-      "Burglary": 46
-    },
-    "Total": "107"
-  },
-  "Other": {
-    "Assault": 5,
-    "Dangerous Driving": 18,
-    "Drink Driving": 8,
-    "Drugs": 5,
-    "OTHER": 23,
-    "Penalty Points": 12,
-    "Public Order": 25,
-    "Road Traffic Other": 11,
-    "Theft": {
-      "Burglary": 5
-    },
-    "Total": "112"
-  },
-  "Probation": {
-    "Assault": 14,
-    "Dangerous Driving": null,
-    "Drink Driving": 1,
-    "Drugs": 75,
-    "OTHER": 53,
-    "Penalty Points": 8,
-    "Public Order": 121,
-    "Road Traffic Other": 56,
-    "Theft": {
-      "Burglary": 59
-    },
-    "Total": "387"
-  },
-  "Strike Out": {
-    "Assault": 66,
-    "Dangerous Driving": 47,
-    "Drink Driving": 32,
-    "Drugs": 45,
-    "OTHER": 511,
-    "Penalty Points": 650,
-    "Public Order": 227,
-    "Road Traffic Other": 885,
-    "Theft": {
-      "Burglary": 47
-    },
-    "Total": "2,510"
-  },
-  "Taken Into Consideration": {
-    "Assault": 1,
-    "Dangerous Driving": null,
-    "Drink Driving": 1,
-    "Drugs": 7,
-    "OTHER": 60,
-    "Penalty Points": 19,
-    "Public Order": 96,
-    "Road Traffic Other": 134,
-    "Theft": {
-      "Burglary": 89
-    },
-    "Total": "407"
-  }
-}
+ {
+   "FIELD1": "Outcome",
+   "FIELD2": "Assault",
+   "FIELD3": "Dangerous Driving",
+   "FIELD4": "Drink Driving",
+   "FIELD5": "Drugs",
+   "FIELD6": "OTHER",
+   "FIELD7": "Penalty Points",
+   "FIELD8": "Public Order",
+   "FIELD9": "Road Traffic Other",
+   "FIELD10": "Theft/Burglary",
+   "FIELD11": "Total"
+ },
+ {
+   "FIELD1": "Community Service Order",
+   "FIELD2": "3",
+   "FIELD3": "",
+   "FIELD4": "",
+   "FIELD5": "1",
+   "FIELD6": "11",
+   "FIELD7": "3",
+   "FIELD8": "1",
+   "FIELD9": "1",
+   "FIELD10": "14",
+   "FIELD11": "34"
+ },
+ {
+   "FIELD1": "Dismiss",
+   "FIELD2": "4",
+   "FIELD3": "4",
+   "FIELD4": "9",
+   "FIELD5": "",
+   "FIELD6": "22",
+   "FIELD7": "14",
+   "FIELD8": "6",
+   "FIELD9": "7",
+   "FIELD10": "4",
+   "FIELD11": "70"
+ },
+ {
+   "FIELD1": "Disqualification",
+   "FIELD2": "1",
+   "FIELD3": "14",
+   "FIELD4": "72",
+   "FIELD5": "",
+   "FIELD6": "1",
+   "FIELD7": "123",
+   "FIELD8": "",
+   "FIELD9": "25",
+   "FIELD10": "5",
+   "FIELD11": "241"
+ },
+ {
+   "FIELD1": "Fine",
+   "FIELD2": "14",
+   "FIELD3": "10",
+   "FIELD4": "68",
+   "FIELD5": "35",
+   "FIELD6": "194",
+   "FIELD7": "384",
+   "FIELD8": "104",
+   "FIELD9": "142",
+   "FIELD10": "43",
+   "FIELD11": "994"
+ },
+ {
+   "FIELD1": "Impr/Det Suspended",
+   "FIELD2": "7",
+   "FIELD3": "5",
+   "FIELD4": "3",
+   "FIELD5": "3",
+   "FIELD6": "17",
+   "FIELD7": "30",
+   "FIELD8": "13",
+   "FIELD9": "13",
+   "FIELD10": "43",
+   "FIELD11": "134"
+ },
+ {
+   "FIELD1": "Imprisonment/Detention",
+   "FIELD2": "11",
+   "FIELD3": "1",
+   "FIELD4": "1",
+   "FIELD5": "1",
+   "FIELD6": "16",
+   "FIELD7": "4",
+   "FIELD8": "26",
+   "FIELD9": "1",
+   "FIELD10": "46",
+   "FIELD11": "107"
+ },
+ {
+   "FIELD1": "Other",
+   "FIELD2": "5",
+   "FIELD3": "18",
+   "FIELD4": "8",
+   "FIELD5": "5",
+   "FIELD6": "23",
+   "FIELD7": "12",
+   "FIELD8": "25",
+   "FIELD9": "11",
+   "FIELD10": "5",
+   "FIELD11": "112"
+ },
+ {
+   "FIELD1": "Probation",
+   "FIELD2": "14",
+   "FIELD3": "",
+   "FIELD4": "1",
+   "FIELD5": "75",
+   "FIELD6": "53",
+   "FIELD7": "8",
+   "FIELD8": "121",
+   "FIELD9": "56",
+   "FIELD10": "59",
+   "FIELD11": "387"
+ },
+ {
+   "FIELD1": "Strike Out",
+   "FIELD2": "66",
+   "FIELD3": "47",
+   "FIELD4": "32",
+   "FIELD5": "45",
+   "FIELD6": "511",
+   "FIELD7": "650",
+   "FIELD8": "227",
+   "FIELD9": "885",
+   "FIELD10": "47",
+   "FIELD11": "2,510"
+ },
+ {
+   "FIELD1": "Taken Into Consideration",
+   "FIELD2": "1",
+   "FIELD3": "",
+   "FIELD4": "1",
+   "FIELD5": "7",
+   "FIELD6": "60",
+   "FIELD7": "19",
+   "FIELD8": "96",
+   "FIELD9": "134",
+   "FIELD10": "89",
+   "FIELD11": "407"
+ }
+]

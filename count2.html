@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <script type="text/javascript" src="countUp.js"></script>
+</head>
+<body>
+
+
+
+<div class="counter" id="myTargetElement" data-count="150">0</div>
+
+
+
+<script>
+
+
+    currentCount = 0;
+
+    function count(num) {
+
+        var options = {
+            "useEasing": true,
+            "useGrouping": true,
+            "separator": ',',
+            "decimal": '.'
+        };
+        var demo = new CountUp('myTargetElement', currentCount, num, 0, 2.5, options).start();
+
+        currentCount = num;
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

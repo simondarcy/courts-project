@@ -21,16 +21,48 @@ svg {
   border: 1px solid #677890;
   padding: 20px 11px;
   font-size: 1.3rem;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative; }
+  .list-title .arr {
+    float: right;
+    font-size: 3rem;
+    position: absolute;
+    right: 22px;
+    top: 0; }
 
 .right {
   position: relative; }
+
+#chart-container {
+  position: relative; }
+  #chart-container #count {
+    display: none;
+    position: absolute;
+    left: -19%;
+    top: 40%;
+    text-align: center;
+    width: 100%;
+    font-size: 3rem; }
+    #chart-container #count:before {
+      content: "Total";
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: -10px; }
+  #chart-container #hack {
+    color: #ffffff; }
 
 #title {
   margin-bottom: 0; }
 
 p.excerpt {
   color: #516480; }
+
+#tooltip {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  background: pink;
+  text-align: center; }
 
 .listholder {
   position: absolute;
