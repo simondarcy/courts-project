@@ -1,4 +1,6 @@
-
+.row{
+  max-width: 1140px!important;
+}
 
 #DonutChart{
   float: left;
@@ -54,10 +56,10 @@ svg{
   #count{
     display: none;
     position: absolute;
-    left: -19%;
+    left: 19%;
     top: 40%;
     text-align: center;
-    width: 100%;
+    width: 30%;
     font-size: 3rem;
     &:before{
       content: "Total";
@@ -126,4 +128,35 @@ p.excerpt{
     //end UL
   }
 
+
+
+  #results-table{
+    display: none!important;
+
+
+
+    thead{
+      background: #A3B0C6;
+      th{
+        color:#ffffff;
+      }
+    }
+    tbody{
+      background: #F1F3F5;
+      tr{
+        &:hover{
+          background: #d3d3d3;
+        }
+        td{
+
+          border:1px solid #A3B0C6;
+        }
+      }
+    }
+    td, th{
+      font-size: 14px;
+      padding: 10px 8px;
+      text-align: left;
+    }
+  }
 

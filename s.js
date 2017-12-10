@@ -58,7 +58,38 @@ function renderDropDown(crimes){
 
 }
 
+function renderTable(data){
 
+    $table = "";
+
+
+     $.each(data, function(i, field) {
+
+        if (i!=0){
+
+            $row = "<tr>"
+
+
+            
+            $.each(field, function(i, col) {
+                    if(col==""){
+                        col = 0;
+                    }
+                  $row = $row + "<td>"+col+"</td>"
+            })
+
+            $row = $row + "</tr>"
+
+            $table = $table + $row;
+        }
+
+    });
+
+
+     $('#table').html($table);
+
+
+}
 
 
  function loadData(file) {
@@ -73,6 +104,7 @@ function renderDropDown(crimes){
 
                 renderDropDown(data[0]);
                 loadChart(data);
+                renderTable(data);
 
 
 
@@ -99,7 +131,7 @@ loadChart = function(blah){
 
 
         if(i!=0){
-            data.push([field.FIELD1, field.FIELD11])
+            data.push([field.FIELD1, field.FIELD11.replace(",", '')])
             overallTotal+=parseInt(field.FIELD11.replace(",", ''))
         }
 
@@ -121,11 +153,28 @@ loadChart = function(blah){
             "type": "donut",
             "onclick": function (d, i) {},
             "onover": function (d, i) {},
-            "onout": function (d, i) {},           
+            "onout": function (d, i) {},  
+            
+            // colors: {
+            //   "Community Service Order":"#6CBAC4",
+            //   "Dismiss": "#DF7F9F",
+            //   "Disqualification":"#82C685",
+            //   "Fine":"#DB9971",
+            //   "Impr/Det Suspended":"#91A8B3",
+            //     "Imprisonment/Detention":"#C9CF87",
+            //     "Other":"#EFE567",
+            //     "Peace Bond":"#C78282",
+            //     "Probation":"#BAA6D3",
+            //     "Strike Out":"blue",
+            //     "Taken Into Consideration":"aqua"
+            // }
         },
         "legend": {
             "position": "right"
         },
+        "color": {
+     pattern: ["#6CBAC4", "#DF7F9F", "#82C685", "#DB9971", "#91A8B3", "#C9CF87", "#EFE567", "#C78282", "#BAA6D3", "#ff0000", "#000000"]
+ },         
         "donut": {
            
         },
@@ -149,6 +198,7 @@ loadChart = function(blah){
 
 fields = [
   "Outcome",
+  "Community Service Order",
   "Dismiss",
   "Disqualification",
   "Fine",
@@ -168,6 +218,7 @@ updateChart =  function(field){
     this.total=0;
 
     var self = this;
+    data = []
 
 
 
@@ -175,17 +226,20 @@ updateChart =  function(field){
 
         if(i!=0){
         
-            
-
+    
             val = item[self.field];
 
             if(val==""){
                 val="0"
             }
 
-            val = parseInt(val)
+            val = parseInt(val.replace(",", ''))
             self.total += val
-            data.push([fields[i], val]);
+
+            console.log( fields[i]+", " +val)
+            console.log(item.FIELD1+", "+val)
+
+            data.push([item.FIELD1, val]);
         }
         
     });
@@ -224,6 +278,7 @@ for (var i = tiles.length; i--;) {
 
         $('.list-title').show();
         $('#count').show();
+        $('#results-table').attr('style', 'display:table!important');
         $('#list-heading').text("Offenses");
 
         $('#title').text(this.getAttribute("id").replace("district", "District "));

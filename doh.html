@@ -23,6 +23,8 @@
 
     <!-- Markup -->
 
+    var colors = ["#6CBAC4", "#DF7F9F", "#ff0000", '#ffffff']
+
 
     // Script
     var chart = bb.generate({
@@ -32,6 +34,33 @@
                 ["data2", 120]
             ],
             "type": "donut",
+            "backgroundColor": [
+                "#FF0000",
+                "#FF0000",
+                "#FF0000"
+            ],
+
+            "color": function(color, d) {
+                var colorRange = d3.scaleLinear()
+                        .domain([0, 20])
+                        .range(["white", "orange", "red"]);
+
+                if (typeof d === "object") {
+                    // for data point
+                    if (d.value) {
+                        return colorRange(d.value);
+
+                        // for data type (ex. line, bar)
+                    } else {
+                        return "#FF0000";
+                    }
+
+                    // for label
+                } else {
+                    console.log(colors.pop())
+                    return "#6CBAC4";
+                }
+            },
             "format":"%d",
             "label.format":"%d",
             "onclick": function (d, i) { console.log("onclick", d, i); },
