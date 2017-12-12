@@ -1,16 +1,16 @@
 var tiles = document.querySelectorAll("#districts g");
-
+var screenWidth = Math.max (document.documentElement.clientWidth, window.innerWidth || 0);
+var screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 var cursorX;
 var cursorY;
+var chart;
+var currentData;
+
 document.onmousemove = function(e){
     cursorX = e.pageX;
     cursorY = e.pageY;
-}
-
-var chart;
-var currentData;
+};
 $dropdown = $("#dropdown");
-
 
 var currentCount = 0;
 
@@ -28,16 +28,13 @@ var currentCount = 0;
     }
 
 
-
-
-
-
+//Function to render the drop down 
 function renderDropDown(crimes){
 
     $($dropdown).html("");
     $.each(crimes, function(i, crime) {
         if (i!="FIELD1" && i!="FIELD11" && i!= "FIELD12"){
-            str = "<li data-field='"+i+"'><a href='javascript:void(0);'>"+crime+"</a></li>";
+            str = "<li data-field='"+i+"'><a href='javascript:void(0);'>"+crime.replace("OTHER", "Other Crimes")+"</a></li>";
             $($dropdown).append(str);
         }
 
@@ -48,52 +45,69 @@ function renderDropDown(crimes){
         $('#list-heading').text($(this).text());
         $('.listholder').hide();
         updateChart($(this).data("field"));
+        $('td.highlight').removeClass('highlight');
+        $('td.'+$(this).data("field")).addClass('highlight')
 
     });
 
-
     $('.excerpt').text(crimes.FIELD12)
 
+}
 
-
+function slugify(text)
+{
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
 }
 
 function renderTable(data){
 
+
+    $('#mobile-table-container').html("");
+
     $table = "";
 
-
-     $.each(data, function(i, field) {
+    $.each(data, function(i, field) {
 
         if (i!=0){
-
-            $row = "<tr>"
-
-
-            
+            //Create Row
+            $row = "<tr class='"+slugify(field.FIELD1)+"'>"
+            //Create Cells
             $.each(field, function(i, col) {
                     if(col==""){
                         col = 0;
                     }
-                  $row = $row + "<td>"+col+"</td>"
+                    if(typeof col === "string"){
+                        col = col.replace('Other', 'Other *')
+                        col = col.replace('Impr/Det Suspended', 'Jail/Detention Suspended')
+                    }
+                  $row = $row + "<td class='"+i+"'>"+col+"</td>"
             })
-
             $row = $row + "</tr>"
-
+            //Append to table
             $table = $table + $row;
         }
 
+
+
+
     });
 
-
+     //Update Table
      $('#table').html($table);
+
+     if(screenWidth <= 500){
+        $('#mobile-table-container').html( $('.full-results').clone().html() )
+     }
 
 
 }
 
-
  function loadData(file) {
-
         $.ajax({
             url: file,
             cache: true,
@@ -105,48 +119,29 @@ function renderTable(data){
                 renderDropDown(data[0]);
                 loadChart(data);
                 renderTable(data);
-
-
-
+                $('td.FIELD11').addClass('highlight');
             }
         });
     }
 
-
-
-
-
-
 loadChart = function(blah){
-
-
 
     currentData = blah;
 
-
+    // Generate Data
     data=[];
     var overallTotal = 0;
-
     $.each(blah, function(i, field) {
-
-
         if(i!=0){
             data.push([field.FIELD1, field.FIELD11.replace(",", '')])
             overallTotal+=parseInt(field.FIELD11.replace(",", ''))
         }
-
-
     });
 
-
+    //Update Counter
     count(overallTotal);
 
-
-
-
-
-
-    // Script
+    // Create the chart
     chart = bb.generate({
         "data": {
             "columns": data,
@@ -154,115 +149,55 @@ loadChart = function(blah){
             "onclick": function (d, i) {},
             "onover": function (d, i) {},
             "onout": function (d, i) {},  
-            
-            // colors: {
-            //   "Community Service Order":"#6CBAC4",
-            //   "Dismiss": "#DF7F9F",
-            //   "Disqualification":"#82C685",
-            //   "Fine":"#DB9971",
-            //   "Impr/Det Suspended":"#91A8B3",
-            //     "Imprisonment/Detention":"#C9CF87",
-            //     "Other":"#EFE567",
-            //     "Peace Bond":"#C78282",
-            //     "Probation":"#BAA6D3",
-            //     "Strike Out":"blue",
-            //     "Taken Into Consideration":"aqua"
-            // }
         },
         "legend": {
-            "position": "right"
+            "position":(screenWidth>500)?"right":"bottom"
         },
         "color": {
-     pattern: ["#6CBAC4", "#DF7F9F", "#82C685", "#DB9971", "#91A8B3", "#C9CF87", "#EFE567", "#C78282", "#BAA6D3", "#ff0000", "#000000"]
+     pattern: ["#6CBAC4", "#DF7F9F", "#82C685", "#DB9971", "#91A8B3", "#C9CF87", "#EFE567", "#C78282", "#BAA6D3", "#B0CFE9", "#9EDDCF"]
  },         
-        "donut": {
-           
-        },
-        "labels": {
-            "format": {
-                "Outcome": function (x) {
-
-                    console.log(x)
-                    return d3.format('$')(x)
-                }
-            }
-        },
+        
         "bindto": "#DonutChart"
     });
 
-
-
-
 };
 
-
-fields = [
-  "Outcome",
-  "Community Service Order",
-  "Dismiss",
-  "Disqualification",
-  "Fine",
-  "Impr/Det Suspended",
-  "Imprisonment/Detention",
-  "Other",
-  "Peace Bond",
-  "Probation",
-  "Strike Out",
-  "Taken Into Consideration",
-  ]
-
+//Function to filter the exiting map by offence
 updateChart =  function(field){
-
 
     this.field = field;
     this.total=0;
 
     var self = this;
     data = []
-
-
-
     $.each(currentData, function(i, item) {
 
         if(i!=0){
-        
-    
             val = item[self.field];
-
             if(val==""){
                 val="0"
             }
-
             val = parseInt(val.replace(",", ''))
             self.total += val
-
-            console.log( fields[i]+", " +val)
-            console.log(item.FIELD1+", "+val)
-
             data.push([item.FIELD1, val]);
         }
         
     });
-
     count(self.total);
-
-
-
-    chart.load({
-                columns:data
-            });
-
-
-
-
+    chart.load({columns:data});
 };
 
+
+var action = (screenWidth>500)?"click":"touchend";
 
 for (var i = tiles.length; i--;) {
 
     me = tiles[i];
 
-    me.addEventListener("click", function(el){
+
+
+    //Load data and update UI when user clicks on a district
+    me.addEventListener(action, function(el){
 
         cur = document.getElementsByClassName("selected");
         if (cur.length>0){
@@ -270,14 +205,12 @@ for (var i = tiles.length; i--;) {
         }
         this.setAttribute("class", "selected");
 
-
         id = this.getAttribute("id")
 
         loadData("data/"+id+".json");
 
-
-        $('.list-title').show();
-        $('#count').show();
+        $('#count, .right, .full-results, .list-title, .disclaimer').show();
+        $('.essay').hide();
         $('#results-table').attr('style', 'display:table!important');
         $('#list-heading').text("Offenses");
 
@@ -287,35 +220,44 @@ for (var i = tiles.length; i--;) {
 
     });
 
-
+    //Create tooltip on rollover
     tooltip = document.getElementById("tooltip")
-
     me.addEventListener("mouseover", function(el){
-
         tooltip.style.display = "block";        
-        tooltip.style.left = cursorX-50 + 'px';
+        tooltip.style.left = cursorX-30 + 'px';
         tooltip.style.top = cursorY-90 + 'px';
-
-        tooltip.innerHTML = this.getAttribute("id")
+        tooltip.innerHTML = this.getAttribute("id").replace("district", "District ")
 
     });
 
 }
 
-
-
-
+//Remove tooltip after rolling out of SVG map
 var map = document.querySelectorAll('svg')[0];
-
- map.addEventListener("mouseout", function(el){
-
-        document.getElementById("tooltip").style.display = "none";
-    
-
-    });
+map.addEventListener("mouseout", function(el){
+    document.getElementById("tooltip").style.display = "none";
+});
 
 
+//Mobile X button
+document.getElementById('ex1').addEventListener("click", function(el){
+$('.mobile-heading').hide();
+});
 
+document.getElementById('the-btn').addEventListener("touchend", function(el){
+$('.mobile-heading').hide();
+});
+
+document.getElementById('ex2').addEventListener("click", function(el){
+$('.right, .full-results').hide();
+    cur = document.getElementsByClassName("selected");
+    if (cur.length>0){
+        cur[0].setAttribute("class", "");
+    }
+
+});
+
+//Show list items on heading click
 $('.list-title').on("click", function(){
    $('.listholder').show();
 });

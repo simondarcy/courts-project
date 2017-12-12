@@ -4,10 +4,25 @@
 #DonutChart {
   float: left; }
 
+ul {
+  padding: 0 !important; }
+
+.subnav {
+  background: #1176dd !important; }
+
+.mobile-heading {
+  display: none; }
+
 svg {
   margin: 1rem auto; }
   svg path {
     background: #F1F3F5; }
+
+#NI {
+  stroke: #A3B0C6; }
+
+#Court_Districts {
+  opacity: 1; }
 
 #districts g {
   fill: #F1F3F5;
@@ -17,6 +32,9 @@ svg {
     fill: #1176DD !important; }
   #districts g.selected {
     fill: #1176DD; }
+
+.ex {
+  display: none; }
 
 .list-title {
   display: none;
@@ -28,10 +46,11 @@ svg {
   position: relative; }
   .list-title .arr {
     float: right;
-    font-size: 3rem;
+    font-size: 2rem;
     position: absolute;
     right: 22px;
-    top: 0; }
+    top: 8px;
+    font-weight: bold; }
 
 .right {
   position: relative; }
@@ -57,15 +76,17 @@ svg {
 #title {
   margin-bottom: 0; }
 
-p.excerpt {
+p.excerpt, p.first {
   color: #516480; }
 
 #tooltip {
   display: none;
   position: absolute;
   padding: 10px;
-  background: pink;
-  text-align: center; }
+  text-align: center;
+  background: black;
+  color: #ffffff;
+  border-radius: 3px; }
 
 .listholder {
   position: absolute;
@@ -78,6 +99,7 @@ p.excerpt {
   .listholder ul {
     height: 324px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     position: relative;
     margin: 0;
     padding: 0; }
@@ -100,6 +122,9 @@ p.excerpt {
 
 #results-table {
   display: none !important; }
+  #results-table caption {
+    background: #ffffff;
+    text-align: left; }
   #results-table thead {
     background: #A3B0C6; }
     #results-table thead th {
@@ -107,12 +132,94 @@ p.excerpt {
   #results-table tbody {
     background: #F1F3F5; }
     #results-table tbody tr:hover {
-      background: #d3d3d3; }
+      background: #1176DD;
+      color: #ffffff; }
     #results-table tbody tr td {
+      font-weight: bold;
       border: 1px solid #A3B0C6; }
+      #results-table tbody tr td.FIELD1 {
+        font-weight: normal; }
   #results-table td, #results-table th {
     font-size: 14px;
     padding: 10px 8px;
-    text-align: left; }
+    text-align: left;
+    white-space: nowrap; }
+    #results-table td.highlight, #results-table th.highlight {
+      background: #1176DD;
+      color: #ffffff; }
+
+p.disclaimer {
+  display: none;
+  font-size: 0.9rem;
+  line-height: 0.9rem; }
+
+@media screen and (max-width: 500px) {
+  .left svg {
+    width: 100%;
+    margin-top: -3rem; }
+
+  .mobile-heading {
+    display: block;
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    background: #ffffff; }
+
+  .right {
+    display: none;
+    height: 100%;
+    z-index: 99999999;
+    background: #ffffff;
+    position: absolute; }
+
+  .ex {
+    display: block;
+    position: absolute;
+    content: 'X';
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-radius: 90px;
+    padding: 3px 13px;
+    vertical-align: middle;
+    text-align: center;
+    right: .9375rem;
+    top: 1.5rem; }
+
+  .table-container {
+    max-width: 500px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: relative; }
+    .table-container .fade {
+      display: block;
+      height: 50%;
+      width: 10%;
+      bottom: 0;
+      right: 0;
+      position: fixed;
+      background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), white);
+      background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), white); }
+
+  .full-results {
+    display: none !important; }
+
+  #chart-container #count {
+    left: 35%;
+    top: 25%;
+    font-size: 1.8rem; }
+  #chart-container svg {
+    margin: 0; }
+
+  #the-btn {
+    background: #1176DD;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3px; }
+    #the-btn:hover {
+      background: #094ddd; } }
 
 /*# sourceMappingURL=distrix.css.map */
